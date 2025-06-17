@@ -11,7 +11,6 @@ Hello, this is the repository of the exercises and assignments for the weeks of 
     └── index.html 
     └── script.js 
 README.md 
-
 ```
 
 
