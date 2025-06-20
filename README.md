@@ -5,15 +5,19 @@ Hello, this is the repository of the exercises and assignments for the weeks of 
 ## 📁structure:
 
 ```
-3-MODULE-JAVASCRIPT/  📁
-└── 03_Week_one_js/   📁
-|    └── challenges/   📁
+3-MODULE-JAVASCRIPT/📁
+└── 03_Week_one_js/📁
+|    └── Explore.js/📁
 |    |    └── index.html 
 |    |    └── script.js 
 |    |    └── Exercise01.md 
-|    └── logic/        📁
-|        └── logic.js
-|        └── index.html.js
+|    └── Logic.js/📁
+|    |    └── logic.js
+|    |    └── index.html.js
+|    └── Veterinary.js/📁
+|    |    └── Script.js
+|    |    └── index.html
+|    └── Training.js/📁
 └──README.md 
 ```
 

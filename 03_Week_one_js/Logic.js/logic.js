@@ -46,7 +46,8 @@ let lastColor = colors.pop();
 
 //Exercise 5
 let listNum = [1,2,3,4,5,6,7,8,9,10];
-let extractNum = listNum.slice(2,4);
+// let extractNum = listNum.slice(2,4);
+let  extractNum = listNum.filter(2,4)
 
 //Exercise 6
 let myArray6 = [10, 20, 30, 40, 50];
