@@ -17,8 +17,7 @@ const registerPets = () => {
   const name = prompt("Enter pet's name:");
   const species = prompt("Enter the pet species (dog, cat, iguana):");
   const age = parseInt(prompt("Enter the pet age:"), 10);
-  const vaccinated = prompt("Is the pet vaccinated? (yes/no):")
-                      .toLowerCase() === "yes";
+  const vaccinated = prompt("Is the pet vaccinated? (yes/no):").toLowerCase() === "yes";  //convert to lower case
 
   // Add the pet to the list
   pets.push({ name, species, age, vaccinated });
