@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        .tarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> Mi lista de tareas</h1>
+
+    <form id="formulario-tarea">
+        <input type="text" id="descripcion" placeholder="Escribe una tarea..." required>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <div id="lista-tareas">
+        <!-- Las tareas aparecerán aquí -->
+    </div>
+
+<script>
+    const form = document.getElementById('formulario-tarea');
+    const inputDescription = document.getElementById('descripcion');
+    const contTask = document.getElementById('lista-tareas');
+
+    let tasks = [];
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const text = inputDescription.value.trim();
+        if (text === '') return;
+
+        const task = {
+            description: text,
+            completed: false
+        };
+
+        tasks.push(task);
+        inputDescription.value = '';
+        showtasks();
+    });
+
+    function showtasks() {
+        contTask.innerHTML = '';
+
+        tasks.forEach((task, index) => {
+            const div = document.createElement('div');
+            div.className = 'tarea';
+            div.textContent = task.description;
+
+            if (task.completed) {
+                div.style.textDecoration = 'line-through';
+                div.style.color = 'green';
+            }
+
+            const btnComplete = document.createElement('button');
+            btnComplete.textContent = 'Completar';
+            btnComplete.addEventListener('click', () => {
+                tasks[index].completed = true;
+                showtasks();
+            });
+
+            div.appendChild(btnComplete);
+            contTask.appendChild(div);
+        });
+    }
+
+    function showtasks() {
+    contTask.innerHTML = '';
+
+    tasks.forEach((task, index) => {
+        const div = document.createElement('div');
+        div.className = 'tarea';
+        div.textContent = task.description;
+
+        if (task.completed) {
+            div.style.textDecoration = 'line-through';
+            div.style.color = 'green';
+        }
+
+        const btnComplete = document.createElement('button');
+        btnComplete.textContent = 'Completar';
+        btnComplete.addEventListener('click', () => {
+            tasks[index].completed = true;
+            showtasks();
+        });
+
+        const btnDelete = document.createElement('button');
+        btnDelete.textContent = 'Eliminar';
+        btnDelete.style.marginLeft = '10px';
+        btnDelete.addEventListener('click', () => {
+            tasks.splice(index, 1); 
+            showtasks(); 
+        });
+
+        div.appendChild(btnComplete);
+        div.appendChild(btnDelete); 
+        contTask.appendChild(div);
+    });
+}
+</script>
+
+
+</body>
+
+</html>

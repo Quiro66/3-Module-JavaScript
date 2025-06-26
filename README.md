@@ -18,6 +18,16 @@ Hello, this is the repository of the exercises and assignments for the weeks of 
 |    |    └── Script.js
 |    |    └── index.html
 |    └── Training.js/📁
+|         └── Script.js
+|         └── index.html
+└── 03_Week_two_js/📁
+|    └── Challange_week_two/📁
+|    |    └── training.js
+|    |    └── training..html
+|    └── Challange_week_two/📁
+|    |         └── task_toDo.html
+|    |         └── product.html
+|    |         └── app.js
 └──README.md 
 ```
 

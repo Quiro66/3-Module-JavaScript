@@ -33,9 +33,9 @@ document.getElementById("ej4").innerHTML = "<h2>4. Person Card</h2>" + personCar
 
 // 2.2 - Song object → <div>
 const song = {
-    title: "Imagine",
-    artist: "John Lennon",
-    duration: "3:07"
+    title: "LVL",
+    artist: "A$AP Rocky",
+    duration: "3:40"
 };
 const songDivHTML = `
         <div class="song">
