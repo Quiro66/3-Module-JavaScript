@@ -65,6 +65,8 @@ function showProducts() {
     }
 }
 
+// This is the step-by-step worksheet process
+
 // // start of de proyect
 // console.log("data management with objects, sets, and maps");
 

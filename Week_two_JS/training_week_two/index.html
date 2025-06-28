@@ -27,10 +27,12 @@
 <body>
     <h1>Product Manager</h1>
 
+    <!-- Input fields for product data -->
     <label>Product Name: <input type="text" id="productName"></label><br>
     <label>Price: <input type="number" id="productPrice"></label><br>
     <label>Category (for Map): <input type="text" id="productCategory"></label><br>
 
+    <!-- Choose where to store the product -->
     <label>Where to store:
         <select id="storageOption">
             <option value="object">Object</option>
@@ -39,6 +41,7 @@
         </select>
     </label><br>
 
+    <!-- Action buttons -->
     <button onclick="addProduct()">Add Product</button>
     <button onclick="showProducts()">Show All</button>
 
