@@ -28,6 +28,14 @@ Hello, this is the repository of the exercises and assignments for the weeks of 
 |    |         └── task_toDo.html
 |    |         └── product.html
 |    |         └── app.js
+|    └── ChatBot/📁
+|    |         └── index.html
+|    |         └── style.css
+|    |         └── script.js
+|    |         └── env.js
+|    └── Training_week_2📁
+|    |         └── index.html
+|    |         └── style.css
 └──README.md 
 ```
 

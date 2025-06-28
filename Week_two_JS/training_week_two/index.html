@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager</title>
+</head>
+<style>
+    body {
+        font-family: Arial;
+        margin: 20px;
+    }
+
+    input,
+    select,
+    button {
+        margin: 5px;
+    }
+
+    pre {
+        background: #f3f3f3;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <h1>Product Manager</h1>
+
+    <label>Product Name: <input type="text" id="productName"></label><br>
+    <label>Price: <input type="number" id="productPrice"></label><br>
+    <label>Category (for Map): <input type="text" id="productCategory"></label><br>
+
+    <label>Where to store:
+        <select id="storageOption">
+            <option value="object">Object</option>
+            <option value="set">Set</option>
+            <option value="map">Map</option>
+        </select>
+    </label><br>
+
+    <button onclick="addProduct()">Add Product</button>
+    <button onclick="showProducts()">Show All</button>
+
+    <h2>Results:</h2>
+    <pre id="output"></pre>
+</body>
+<script src="./script.js"></script>
+</html>
