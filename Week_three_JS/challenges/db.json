@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Juan Quiroz",
+      "email": "juan.quiroz@example.com",
+      "password": "123456",
+      "role": "admin",
+      "active": true
+    },
+    {
+      "id": "2",
+      "name": "Maria Lopez",
+      "email": "maria.lopez@example.com",
+      "password": "password123",
+      "role": "user",
+      "active": true
+    },
+    {
+      "id": "3",
+      "name": "Carlos Perez",
+      "email": "carlos.perez@example.com",
+      "password": "abc123",
+      "role": "user",
+      "active": false
+    },
+    {
+      "id": "4",
+      "name": "Ana Torres",
+      "email": "ana.torres@example.com",
+      "password": "admin2024",
+      "role": "moderator",
+      "active": true
+    },
+    {
+      "id": "5",
+      "name": "Luis Ramírez",
+      "email": "luis.ramirez@example.com",
+      "password": "qwerty789",
+      "role": "user",
+      "active": true
+    }
+  ]
+}
