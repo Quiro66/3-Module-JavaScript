@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0b0c;
+    color: #f0f8ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #00469c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.contenedor {
+    padding: 2rem 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    flex: 1;
+}
+
+.pelicula {
+    background: #1c1f24;
+    border-radius: 1em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pelicula:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255,255,255,0.1);
+}
+
+.pelicula img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.pelicula h2 {
+    font-size: 1.1rem;
+    margin: 0.8rem;
+    color: #ffffff;
+}
+
+.pelicula p {
+    font-size: 0.9rem;
+    margin: 0 0.8rem 1rem;
+    color: #a5b0c1;
+}
+
+.paginacion {
+    background-color: #00469c;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
+}
+
+button {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: #0c8ae0;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0a70b0;
+}
