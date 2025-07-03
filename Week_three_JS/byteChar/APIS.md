@@ -54,8 +54,9 @@ Usado para enviar la API Key. Hay diferentes formatos, pero uno de los más comu
 
 ```
 Authorization: Bearer TU_API_KEY
-Bearer significa "portador", y se usa para indicar que estás enviando un token de acceso o clave.
 ```
+Bearer significa "portador", y se usa para indicar que estás enviando un token de acceso o clave.
+
 Después de Bearer se coloca la clave de la API.
 
 ## 📦 Content-Type
