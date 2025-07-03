@@ -10,6 +10,20 @@ Una **API** (Application Programming Interface) es un conjunto de reglas y proto
 
 ---
 
+## 🔄 ¿Qué es una API REST?
+Una API REST (Representational State Transfer) es un tipo específico de API que sigue un conjunto de reglas y convenciones para facilitar la comunicación entre un cliente (como una aplicación web o móvil) y un servidor.
+
+🧩Características principales de una API REST:
+- Usa los métodos HTTP estándar: GET, POST, PUT, DELETE.
+
+- Accede a recursos a través de URLs claras, por ejemplo:
+GET https://api.ejemplo.com/usuarios/1
+
+- Es sin estado: cada petición contiene toda la información necesaria (el servidor no guarda información entre peticiones).
+
+- Suele trabajar con datos en formato JSON.
+
+
 ## 🔐 ¿Qué es una API Key?
 
 Una **API Key** (clave de API) es una cadena única (por ejemplo: `DEMO_KEY_123456`) que se utiliza para autenticar solicitudes a una API. Sirve para:
@@ -41,10 +55,11 @@ Y si estás enviando datos (por ejemplo, en una petición POST), también se inc
 ## 🧩 Partes de una petición
 1. Método HTTP
    
-- GET: Obtener información.
-- POST: Enviar nuevos datos.
-- PUT: Actualizar datos.
-- DELETE: Eliminar datos.
+- `GET`: Obtener información.
+- `POST`: Enviar nuevos datos.
+- `PUT`: Actualizar un recurso completo.
+- `PATCH`: Actualizar parcialmente un recurso (por ejemplo, solo un campo).
+- `DELETE`: Eliminar datos.
 
 2. Header
 Los headers son metadatos que acompañan a la petición. Los más comunes son:

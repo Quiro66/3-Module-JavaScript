@@ -1,11 +1,11 @@
-// 🔐 Clave de la API de la NASA (reemplázala si usas otra)
+// Clave de la API de la NASA (reemplázala si usas otra)
 const API_KEY = "VGhoTUQrsI4HqFkjm04BejMY1xeoNErodniwJjC3";
 
-// 🌍 URL del endpoint para obtener la imagen astronómica del día (APOD)
+// URL del endpoint para obtener la imagen astronómica del día (APOD)
 const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
 /**
- * 🔄 Función asincrónica para obtener la imagen del día desde la API de NASA
+ * Función asincrónica para obtener la imagen del día desde la API de NASA
  */
 async function obtenerImagenDelDia() {
     try {
@@ -33,7 +33,7 @@ async function obtenerImagenDelDia() {
 }
 
 /**
- * 🖼️ Función para mostrar la imagen o video en el DOM
+ * función para mostrar la imagen o video en el DOM
  * @param {object} data - Objeto con los datos de la API
  */
 function mostrarImagen(data) {
@@ -57,5 +57,5 @@ function mostrarImagen(data) {
     }
 }
 
-// ▶️ Ejecutar la función principal al cargar la página
+// Ejecutar la función principal al cargar la página
 obtenerImagenDelDia();
