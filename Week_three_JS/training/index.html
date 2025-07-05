@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Productos con Fetch API y JSON Server</h1>
+
+        <div class="message" id="message"></div>
+
+        <h2>Productos Disponibles</h2>
+        <div class="product-list" id="productList">
+            </div>
+
+        <div class="form-section">
+            <h2>Agregar Nuevo Producto</h2>
+            <label for="newProductName">Nombre:</label>
+            <input type="text" id="newProductName" placeholder="Nombre del producto">
+            <label for="newProductPrice">Precio:</label>
+            <input type="number" id="newProductPrice" placeholder="Precio del producto">
+            <button onclick="handleAddProduct()">Agregar Producto</button>
+        </div>
+
+        <div class="form-section">
+            <h2>Actualizar Producto</h2>
+            <label for="updateProductId">ID del Producto:</label>
+            <input type="number" id="updateProductId" placeholder="ID del producto a actualizar">
+            <label for="updateProductName">Nuevo Nombre:</label>
+            <input type="text" id="updateProductName" placeholder="Nuevo nombre (opcional)">
+            <label for="updateProductPrice">Nuevo Precio:</label>
+            <input type="number" id="updateProductPrice" placeholder="Nuevo precio (opcional)">
+            <button onclick="handleUpdateProduct()">Actualizar Producto</button>
+        </div>
+
+        <div class="form-section">
+            <h2>Eliminar Producto</h2>
+            <label for="deleteProductId">ID del Producto:</label>
+            <input type="number" id="deleteProductId" placeholder="ID del producto a eliminar">
+            <button onclick="handleDeleteProduct()">Eliminar Producto</button>
+        </div>
+    </div>
+
+    <script src="gestion_api.js"></script>
+</body>
+</html>

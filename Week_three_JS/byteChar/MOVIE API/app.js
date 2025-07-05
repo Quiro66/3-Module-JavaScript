@@ -1,63 +1,58 @@
-// Variable para llevar el control de la página actual
-let pagina = 1;
+const URL = "http://localhost:3000/products";
 
-// Obtener los botones de anterior y siguiente del DOM
-const btnPrev = document.getElementById('btnAnterior');
-const btnNext = document.getElementById('btnSiguiente');
+// Read all products
+fetch(URL)
+  .then(res => {
+    if (!res.ok) throw new Error("Failed to fetch products");
+    return res.json();
+  })
+  .then(data => console.log("📦 Products:", data))
+  .catch(err => console.error("❌ Error:", err.message));
 
-// Evento para el botón "Siguiente"
-btnNext.addEventListener('click', () => {
-    // Si la página es menor a 1000, avanza una página y carga las películas
-    if (pagina < 1000) {
-        pagina++;
-        cargarPeliculas();
-    }
-});
+// Create a new product
+function createProduct(name, price) {
+  if (!name || isNaN(price)) {
+    return console.error("❌ Invalid name or price");
+  }
 
-// Evento para el botón "Anterior"
-btnPrev.addEventListener('click', () => {
-    // Si la página es mayor a 1, retrocede una página y carga las películas
-    if (pagina > 1) {
-        pagina--;
-        cargarPeliculas();
-    }
-});
+  const newProduct = { name, price: Number(price) };
 
-// Función asíncrona para cargar las películas desde la API
-const cargarPeliculas = async () => {
-    try {
-        // Realiza la petición a la API de películas
-        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=b7a184cb346ca4f89f9a082c072c016b&page=${pagina}`);
+  fetch(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newProduct)
+  })
+    .then(res => res.json())
+    .then(data => console.log("✅ Product created:", data))
+    .catch(err => console.error("❌ Create error:", err));
+}
 
-        // Si la respuesta es exitosa (código 200)
-        if (respuesta.status === 200) {
-            const datos = await respuesta.json(); // Convierte la respuesta a JSON
-            mostrarPeliculas(datos.results); // Muestra las películas en pantalla
-        } else if (respuesta.status === 401) {
-            // Si la API Key es incorrecta
-            console.error('No autorizado: API Key incorrecta');
-        } else {
-            // Otros errores
-            console.error('Error desconocido');
-        }
-    } catch (error) {
-        // Error de red o conexión
-        console.error('Error de red:', error);
-    }
-};
+// Update a product
+function updateProduct(id, updatedData) {
+  fetch(`${URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updatedData)
+  })
+    .then(res => res.json())
+    .then(data => console.log("✏️ Product updated:", data))
+    .catch(err => console.error("❌ Update error:", err));
+}
 
-// Función para mostrar las películas en el HTML
-const mostrarPeliculas = (peliculas) => {
-    const contenedor = document.getElementById('contenedor'); // Contenedor donde se mostrarán las películas
-    // Genera el HTML para cada película y lo inserta en el contenedor
-    contenedor.innerHTML = peliculas.map(pelicula => `
-    <div class="pelicula">
-      <img src="https://image.tmdb.org/t/p/w500${pelicula.poster_path}" alt="${pelicula.title}">
-      <h2>${pelicula.title}</h2>
-      <p>Popularidad: ${pelicula.popularity}</p>
-    </div>
-  `).join('');
-};
+// Delete a product
+function deleteProduct(id) {
+  fetch(`${URL}/${id}`, {
+    method: "DELETE"
+  })
+    .then(() => console.log(`🗑️ Product ${id} deleted`))
+    .catch(err => console.error("❌ Delete error:", err));
+}
 
-// Carga las películas al cargar la página por primera vez
-cargarPeliculas();
+// 📌 Example usage:
+// createProduct("T-shirt", 45);
+// updateProduct(1, { name: "Shoes", price: 80 });
+// deleteProduct(2);
