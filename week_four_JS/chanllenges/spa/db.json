@@ -1,0 +1,44 @@
+{
+  "Users": [
+    {
+      "name": "Name",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "0009-09-09",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Nombre Completo",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    },
+    {
+      "id": "4",
+      "name": "juan",
+      "email": "example11@example",
+      "phone": "1234567890",
+      "enrollNumber": "1234567890",
+      "dateOfAdmission": "1991-08-08"
+    },
+    {
+      "id": "5",
+      "name": "juanyyyyy",
+      "email": "example11@example",
+      "phone": "1234567890",
+      "enrollNumber": "1234567890",
+      "dateOfAdmission": "0888-08-08"
+    },
+    {
+      "id": "6",
+      "name": "juanjjjjjjjjjjjjjjjjjj",
+      "email": "example11@example",
+      "phone": "1234567890",
+      "enrollNumber": "1234567890",
+      "dateOfAdmission": "0008-01-01"
+    }
+  ]
+}

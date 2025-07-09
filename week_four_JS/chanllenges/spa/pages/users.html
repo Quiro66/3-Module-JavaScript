@@ -1,0 +1,95 @@
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #1e3c72;
+    letter-spacing: 2px;
+  }
+  .users-table-container {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px #0002;
+    padding: 2rem 1.5rem;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    background: transparent;
+  }
+  thead {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+  }
+  th, td {
+    padding: 0.85rem 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  th {
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  td.actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .btn-edit, .btn-delete {
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.97rem;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-edit {
+    background: #007bff;
+  }
+  .btn-edit:hover {
+    background: #0056b3;
+  }
+  .btn-delete {
+    background: #dc3545;
+  }
+  .btn-delete:hover {
+    background: #b52a37;
+  }
+  @media (max-width: 700px) {
+    .users-table-container {
+      padding: 1rem 0.2rem;
+    }
+    table, thead, tbody, th, td, tr {
+      font-size: 0.93rem;
+    }
+    th, td {
+      padding: 0.5rem 0.3rem;
+    }
+  }
+</style>
+<h1>Usuarios</h1>
+<div class="users-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Matrícula</th>
+        <th>Fecha de admisión</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="container-users">
+      <!-- Aquí se insertan las filas dinámicamente -->
+    </tbody>
+  </table>
+</div>
