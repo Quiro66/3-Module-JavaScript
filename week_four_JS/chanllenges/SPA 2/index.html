@@ -84,19 +84,24 @@
     </style>
 </head>
 <body>
+  <div id="app">
     <nav class="navbar">
-        <div class="navbar-title">
-            <!-- SVG icon: user group -->
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
-            <span>SPA</span>
-        </div>
-        <div class="navbar-links">
-            <a href="/users" data-link>Usuarios</a>
-            <a href="/newuser" data-link>Nuevo</a>
-            <a href="/about" data-link>Acerca</a>
-        </div>
+      <div class="navbar-title">
+        <!-- SVG icon: user group -->
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+        <span>SPA</span>
+      </div>
+      <div class="navbar-links">
+        <a href="/users" data-link>Usuarios</a>
+        <a href="/newuser" data-link>Nuevo</a>
+        <a href="/about" data-link>Acerca</a>
+      </div>
     </nav>
     <main id="content"></main>
-    <script type="module" src="./js/script.js"></script>
-</body>
+  </div>
+
+  <div id="login-content"></div>
+  
+  <script type="module" src="./js/script.js"></script>
+  </body>
 </html>

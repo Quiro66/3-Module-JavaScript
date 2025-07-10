@@ -2,7 +2,7 @@
   "Users": [
     {
       "name": "Name",
-      "email": "correo@ejemplo.com",
+      "email": "admin@admin",
       "phone": "1234567890",
       "enrollNumber": "12345678901234",
       "dateOfAdmission": "0009-09-09",
@@ -14,7 +14,9 @@
       "email": "correo@ejemplo.com",
       "phone": "1234567890",
       "enrollNumber": "12345678901234",
-      "dateOfAdmission": "08-Dec-2021"
+      "dateOfAdmission": "08-Dec-2021",
+      "role": "Admin",
+      "password": "1234"
     },
     {
       "id": "4",
@@ -33,12 +35,14 @@
       "dateOfAdmission": "0888-08-08"
     },
     {
-      "id": "6",
-      "name": "juanjjjjjjjjjjjjjjjjjj",
-      "email": "example11@example",
-      "phone": "1234567890",
-      "enrollNumber": "1234567890",
-      "dateOfAdmission": "0008-01-01"
+      "id": "3dfd",
+      "name": "user",
+      "email": "user@user",
+      "phone": "123456",
+      "enrollNumber": "kdnfur ",
+      "dateOfAdmission": "2025-07-10",
+      "password": "1111",
+      "role": "user"
     }
   ]
 }

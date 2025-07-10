@@ -3,7 +3,7 @@ import { get, post, update, deletes } from './services';
 const urlUsers = "http://localhost:3001/Users";
 
 const routes = {
-  "/": "./pages/users.html",
+  "/": "./pages/login.html",
   "/users": "./pages/users.html",
   "/newuser": "./pages/newuser.html",
   "/about": "./pages/about.html",
@@ -34,6 +34,13 @@ async function navigate(pathname) {
   document.getElementById("content").innerHTML = html;
   history.pushState({}, "", pathname);
 
+  updateNavbarForRole(); // <-- Agrega esto aquí
+
+  // Llama a setupLogin si es la ruta de login
+  if (pathname === "/") {
+    setupLogin();
+  }
+
   if (pathname == "/users") {
     renderUsers();
   }
@@ -41,6 +48,11 @@ async function navigate(pathname) {
   if (pathname == "/newuser") {
     const form = document.getElementById("form-new-user");
     if (form) {
+      const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+      if (!loggedUser || loggedUser.role !== "Admin") {
+        form.innerHTML = "<p style='color:red'>Solo el administrador puede crear usuarios.</p>";
+        return;
+      }
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const userData = {
@@ -49,6 +61,8 @@ async function navigate(pathname) {
           phone: document.getElementById("phone").value,
           enrollNumber: document.getElementById("enrollNumber").value,
           dateOfAdmission: document.getElementById("dateOfAdmission").value,
+          password: document.getElementById("password").value,
+          role: "user",
         };
         await createUser(userData);
         form.reset();
@@ -101,6 +115,8 @@ async function renderUsers(){
   const containeUsers = document.getElementById("container-users");
   containeUsers.innerHTML = ""; // Limpia antes de renderizar
 
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
   let usersData = await get(urlUsers);
   usersData.forEach(user => {
     containeUsers.innerHTML += `
@@ -111,8 +127,12 @@ async function renderUsers(){
         <td>${user.enrollNumber}</td>
         <td>${user.dateOfAdmission}</td>
         <td class="actions">
-          <a class="btn-edit" data-link href="/edit/${user.id}">Editar</a>
-          <a class="btn-delete" data-link href="/delete/${user.id}">Eliminar</a>
+          ${
+            loggedUser && loggedUser.role === "Admin"
+              ? `<a class="btn-edit" data-link href="/edit/${user.id}">Editar</a>
+                <a class="btn-delete" data-link href="/delete/${user.id}">Eliminar</a>`
+              : ""
+          }
         </td>
       </tr>
     `;
@@ -130,12 +150,35 @@ document.addEventListener("DOMContentLoaded", () => {
         phone: document.getElementById("phone").value,
         enrollNumber: document.getElementById("enrollNumber").value,
         dateOfAdmission: document.getElementById("dateOfAdmission").value,
+        password: document.getElementById("password").value,
+        role: "user",
+
       };
       await createUser(userData);
       form.reset();
     });
   }
+
+  // Navega a la ruta actual o al login si es la primera carga
+  if (location.pathname === "/" || location.pathname === "/index.html") {
+    navigate("/");
+  } else {
+    navigate(location.pathname);
+  }
+  updateNavbarForRole();
 });
+
+function updateNavbarForRole() {
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+  const newUserLink = document.querySelector('a[href="/newuser"]');
+  if (newUserLink) {
+    if (!loggedUser || loggedUser.role !== "Admin") {
+      newUserLink.style.display = "none";
+    } else {
+      newUserLink.style.display = "";
+    }
+  }
+}
 
 async function createUser(userData) {
   try {
@@ -148,4 +191,31 @@ async function createUser(userData) {
   } catch (error) {
     console.error("Error al crear usuario:", error);
   }
+}
+
+async function setupLogin() {
+  const form = document.getElementById("login-form");
+  const msg = document.getElementById("login-msg");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Cambia la URL al puerto correcto y mayúscula correcta
+    const users = await get("http://localhost:3001/Users");
+
+    const found = users.find(
+      user => user.email === email && user.password === password
+    );
+
+    if (found) {
+      localStorage.setItem("loggedUser", JSON.stringify(found));
+      navigate("/users");
+    } else {
+      msg.textContent = "Correo o contraseña incorrectos";
+      console.log(msg.textContent)
+    }
+  });
 }
