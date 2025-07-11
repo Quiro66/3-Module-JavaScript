@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interacción DOM y JSON Server</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario Usuario</h1>
+    <form id="user-form">
+      <input type="text" id="name" placeholder="Nombre" required />
+      <input type="number" id="age" placeholder="Edad" required />
+      <button type="submit">Guardar Datos</button>
+      <button type="button" id="clear">Limpiar Datos</button>
+    </form>
+    <h2>Datos Almacenados</h2>
+    <div id="output"></div>
+    <p>Interacciones esta sesión: <span id="contador">0</span></p>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
